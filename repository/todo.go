@@ -18,6 +18,10 @@ type TodoList struct {
 	DB    *gorm.DB
 	todos []Todo
 }
+type TodoRepository interface {
+	Create(createTodo CreateTodo) Todo
+	GetAll() []Todo
+}
 
 //func NewTodoList() TodoList {
 //	return TodoList{

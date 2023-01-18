@@ -1,13 +1,15 @@
 package controller
 
 import (
+	"fmt"
 	"github.com/labstack/echo/v4"
 	"net/http"
 	"todo-app/repository"
 )
 
 type TodoController struct {
-	TodoRepo repository.TodoList
+	//TodoRepo repository.TodoList
+	TodoRepo repository.TodoRepository
 }
 
 func (tc *TodoController) CreateTodo(c echo.Context) error {
@@ -23,6 +25,8 @@ func (tc *TodoController) CreateTodo(c echo.Context) error {
 
 func (tc *TodoController) GetAllTodos(c echo.Context) error {
 	todos := tc.TodoRepo.GetAll()
+
+	fmt.Print("todos:", todos)
 
 	return c.JSON(http.StatusOK, todos)
 }

@@ -16,7 +16,9 @@ func main() {
 	defer db.Close()
 	db.AutoMigrate(&repository.Todo{})
 
-	todoController := &controller.TodoController{TodoRepo: repository.TodoList{DB: db}}
+	//todoController := &controller.TodoController{TodoRepo: repository.TodoList{DB: db}}
+	todoController := &controller.TodoController{TodoRepo: &repository.TodoList{DB: db}}
+
 	e := echo.New()
 
 	e.GET("/todos", todoController.GetAllTodos)
