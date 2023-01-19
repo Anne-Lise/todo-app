@@ -6,6 +6,7 @@ require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/labstack/echo/v4 v4.10.0
 	github.com/stretchr/testify v1.8.1
+	gopkg.in/DATA-DOG/go-sqlmock.v1 v1.3.0
 )
 
 require (

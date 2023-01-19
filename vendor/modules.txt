@@ -60,6 +60,9 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
+# gopkg.in/DATA-DOG/go-sqlmock.v1 v1.3.0
+## explicit
+gopkg.in/DATA-DOG/go-sqlmock.v1
 # gopkg.in/yaml.v3 v3.0.1
 ## explicit
 gopkg.in/yaml.v3
