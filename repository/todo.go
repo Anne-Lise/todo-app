@@ -1,17 +1,20 @@
 package repository
 
-import "github.com/jinzhu/gorm"
+import (
+	"github.com/jinzhu/gorm"
+)
 
 type Todo struct {
 	gorm.Model
-	ID          string `json:"id"`
 	Name        string `json:"name"`
 	IsCompleted bool   `json:"isCompleted"`
 }
 
 type CreateTodo struct {
+	gorm.Model
 	Name string `json:"name"`
-	ID   string
+	//ID   string
+
 }
 
 type TodoList struct {
@@ -23,12 +26,6 @@ type TodoRepository interface {
 	GetAll() []Todo
 }
 
-//func NewTodoList() TodoList {
-//	return TodoList{
-//		todos: make([]Todo, 0),
-//	}
-//}
-
 func (tm *TodoList) GetAll() []Todo {
 	tm.DB.Find(&tm.todos)
 	return tm.todos
@@ -37,12 +34,9 @@ func (tm *TodoList) GetAll() []Todo {
 func (tm *TodoList) Create(createTodo CreateTodo) Todo {
 
 	newTodo := Todo{
-		ID:          createTodo.ID,
-		Name:        createTodo.Name,
-		IsCompleted: false,
+		Name: createTodo.Name,
 	}
 
-	//tm.todos = append(tm.todos, newTodo)
 	tm.DB.Create(&newTodo)
 	return newTodo
 }
